@@ -5,7 +5,7 @@
 require('dotenv').config();
 require("@nomiclabs/hardhat-ethers");
 
-const { API_URL, PRIVATE_KEY } = process.env;
+const { PRIVATE_KEY } = process.env;
 
 module.exports = {
    solidity: "0.8.9",
@@ -13,8 +13,12 @@ module.exports = {
    networks: {
       hardhat: {},
       polygon_mumbai: {
-         url: API_URL,
-         accounts: [`0x${PRIVATE_KEY}`]
-      }
+         url: "https://rpc-mumbai.maticvigil.com",
+         accounts: [PRIVATE_KEY]
+      },
+      polygon: {
+         url: "https://rpc-mainnet.maticvigil.com",
+         accounts: [PRIVATE_KEY]
+      },
    },
 }
